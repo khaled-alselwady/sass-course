@@ -2,6 +2,7 @@
 @use "./sass/pages/contact";
 @use "./sass/variables/colors" as *;
 
+// variables
 $alt_color: green;
 
 .header {
@@ -25,5 +26,80 @@ $max_mobile: "min-width:768px";
 @media ($max_mobile) {
   .sidebar {
     display: none;
+  }
+}
+
+// nesting & parent elements
+.parent {
+  font-size: 10px;
+  .child {
+    font-size: 20px;
+    .grand-child {
+      font-size: 30px;
+    }
+  }
+}
+
+.parent-one,
+.parent-two {
+  padding: 10px;
+  .child {
+    padding: 20px;
+  }
+}
+
+.parent {
+  > .child {
+    font-size: 20px;
+  }
+  .test {
+    font-size: 30px;
+  }
+  + p {
+    font-size: 40px;
+  }
+  ~ a {
+    font-size: 40px;
+  }
+}
+
+.parent {
+  > {
+    .element-one {
+      font-size: 10px;
+    }
+    .element-two {
+      font-size: 10px;
+    }
+  }
+  .not-direct-child {
+    font-weight: bold;
+  }
+}
+
+.box {
+  .title {
+    font-size: 20px;
+  }
+  .description {
+    font-size: 16px;
+  }
+  &.red {
+    background-color: red;
+  }
+  &.green {
+    background-color: green;
+  }
+  &:hover {
+    background-color: blue;
+  }
+  &:hover .title {
+    font-size: 22px;
+  }
+  :not(&) {
+    background-color: yellow;
+  }
+  [dir="rtl"] & {
+    direction: rtl;
   }
 }
