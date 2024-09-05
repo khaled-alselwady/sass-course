@@ -1,2 +1,29 @@
 @use "./sass/layout/_global-rules";
 @use "./sass/pages/contact";
+@use "./sass/variables/colors" as *;
+
+$alt_color: green;
+
+.header {
+  background-color: $alt_color;
+}
+
+.footer {
+  $alt_color: black !global;
+  background-color: $alt_color;
+}
+
+.copyright {
+  background-color: $alt_color;
+}
+
+.sidebar {
+  background-color: $main;
+}
+
+$max_mobile: "min-width:768px";
+@media ($max_mobile) {
+  .sidebar {
+    display: none;
+  }
+}
