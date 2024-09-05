@@ -1,9 +1,2 @@
-@for $i from 1 through 50 {
-  .class-#{$i} {
-    font-size: 10px + $i;
-  }
-}
-
-.class {
-  transform: translateX(10px);
-}
+@use "./sass/layout/_global-rules";
+@use "./sass/pages/contact";
