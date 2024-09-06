@@ -152,3 +152,50 @@ $max_mobile: "min-width:768px";
   @extend %main-box;
   color: green;
 }
+
+// Control Flow - If And Else
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+
+  @if $alt_color == red {
+    background-color: blue;
+  } @else if $alt_color == green {
+    background-color: yellow;
+  } @else {
+    background-color: white;
+  }
+}
+
+$theme: "dark";
+
+.page {
+  @if ($theme == "dark") {
+    background-color: black;
+    color: white;
+  } @else {
+    background-color: white;
+    color: black;
+  }
+}
+
+@if ($theme == "dark") {
+  .page {
+    background-color: black;
+    color: white;
+  }
+}
+
+$rounded: false;
+
+.box {
+  @extend %main-box;
+  // if(the condition, if condition true, if condition false)
+  border-radius: if(
+    $rounded,
+    6px,
+    null
+  ); // null => the border-radius won't appear
+}
