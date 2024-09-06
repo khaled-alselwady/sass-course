@@ -199,3 +199,61 @@ $rounded: false;
     null
   ); // null => the border-radius won't appear
 }
+
+// Create Triangle With If And Else
+
+$direction: "top";
+
+.arrow-div {
+  @extend %main-box;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: 50px auto;
+  &::before {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;
+    @if $direction == "top" {
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-color: red;
+    } @else if $direction == "right" {
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left-color: red;
+    } @else if $direction == "bottom" {
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top-color: red;
+    } @else if $direction == "left" {
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-right-color: red;
+    } @else {
+      @error "This Direction #{$direction} Is Not Valid";
+    }
+  }
+}
+
+// Interpolation
+
+$company: "falcon";
+$position: "right";
+
+.ad-#{$company}-#{unique-id()} {
+  font-size: 20px;
+  background-image: url("imgs/#{$company}.png");
+  #{$position}: 0;
+}
+.ad-#{unique-id()} {
+  font-weight: bold;
+}
