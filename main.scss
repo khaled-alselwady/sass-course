@@ -103,3 +103,52 @@ $max_mobile: "min-width:768px";
     direction: rtl;
   }
 }
+
+// Property Declarations And Placeholder
+
+.box {
+  font-size: 10px;
+  font: {
+    size: 30px;
+    weight: bold;
+    family: Arial, sans-serif;
+  }
+}
+
+// without using placeholder (use it if the element that have the shared properties exists)
+.main-box {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+.ads {
+  @extend .main-box;
+  font-size: 20px;
+  color: red;
+}
+
+.article {
+  font-size: 22px;
+  @extend .main-box;
+  color: green;
+}
+
+// using placeholder (use it if the element that have the shared properties doesn't exist)
+%main-box {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+.ads {
+  @extend %main-box;
+  font-size: 20px;
+  color: red;
+}
+
+.article {
+  font-size: 22px;
+  @extend %main-box;
+  color: green;
+}
