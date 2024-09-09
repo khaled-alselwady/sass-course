@@ -300,3 +300,48 @@ $dimensions: 0;
   }
   $dimensions: $dimensions + 100;
 }
+
+// Each + Maps
+
+$themes: red, green, blue, orange;
+
+@each $theme in $themes {
+  .#{$theme}-theme {
+    .product {
+      background-color: white;
+      border-bottom: 2px solid $theme;
+      .title {
+        color: $theme;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+$socials: (
+  "facebook": blue,
+  "youtube": red,
+  "github": black,
+  "twitter": indianred,
+);
+
+@each $name, $color in $socials {
+  .#{$name} {
+    background-color: $color;
+    color: white;
+    &::before {
+      content: $name;
+    }
+  }
+}
+
+$classes: "one" 20px red, "two" 15px green, "three" 22px blue;
+
+@each $class, $font, $color in $classes {
+  .#{$class} {
+    font-size: $font;
+    background-color: $color;
+    color: white;
+    padding: $font / 2;
+  }
+}
