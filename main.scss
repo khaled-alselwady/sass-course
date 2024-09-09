@@ -281,3 +281,22 @@ ul.links {
   @include circle(400px);
   @include centering;
 }
+
+// Loop => For
+
+@for $i from 1 through 10 {
+  .class-#{$i} {
+    font-size: #{$i + 10px};
+  }
+}
+
+$dimensions: 0;
+
+@for $i from 1 through 10 {
+  .circle-#{100 + $dimensions} {
+    width: $dimensions + 100px;
+    height: $dimensions + 100px;
+    border-radius: 50%;
+  }
+  $dimensions: $dimensions + 100;
+}
