@@ -1,6 +1,7 @@
 @use "./sass/layout/_global-rules";
 @use "./sass/pages/contact";
 @use "./sass/variables/colors" as *;
+@use "./sass//helpers/mixins" as *;
 
 // variables
 $alt_color: green;
@@ -256,4 +257,27 @@ $position: "right";
 }
 .ad-#{unique-id()} {
   font-weight: bold;
+}
+
+// Mixin And Include
+
+ul.links {
+  @include list-reset;
+}
+
+.circle-100 {
+  @include circle(100px);
+  background-color: red;
+  color: white;
+}
+
+.circle-200 {
+  @include circle(200px);
+  background-color: red;
+  color: white;
+}
+
+.center-circle {
+  @include circle(400px);
+  @include centering;
 }
