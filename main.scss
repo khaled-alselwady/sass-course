@@ -2,6 +2,7 @@
 @use "./sass/pages/contact";
 @use "./sass/variables/colors" as *;
 @use "./sass//helpers/mixins" as *;
+@use "./sass/helpers/functions" as *;
 
 // variables
 $alt_color: green;
@@ -356,4 +357,14 @@ $start: 1;
     height: ($start * 100px) / 2;
   }
   $start: $start + 1;
+}
+
+// Function
+
+$width: 200px;
+
+.element {
+  width: $width;
+  height: half($width);
+  top: calculate(100px, 200px, 50px);
 }
